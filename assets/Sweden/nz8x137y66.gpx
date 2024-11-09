@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Skoterleder.org" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd" >
+<metadata>
+  <name>Skoterleder</name>
+  <desc>From Skoterleder.org 2024-02-24 7 km (Merged: 0 Missing key:115 Removed nods: 0) Mem1: 418 Mem2: 422</desc>
+</metadata>
+<trk><trkseg>
+	<trkpt lat="64.7744975" lon="13.9976838" />
+	<trkpt lat="64.7751434" lon="13.9976599" />
+	<trkpt lat="64.7757176" lon="13.9976386" />
+	<trkpt lat="64.7762895" lon="13.9972808" />
+	<trkpt lat="64.7768603" lon="13.9967549" />
+	<trkpt lat="64.7775063" lon="13.9967309" />
+	<trkpt lat="64.7781511" lon="13.9965387" />
+	<trkpt lat="64.7787253" lon="13.9965174" />
+	<trkpt lat="64.7792995" lon="13.996496" />
+	<trkpt lat="64.7798748" lon="13.9966429" />
+	<trkpt lat="64.7804535" lon="13.9972946" />
+	<trkpt lat="64.7811781" lon="13.9982774" />
+	<trkpt lat="64.7817568" lon="13.9989291" />
+	<trkpt lat="64.7823378" lon="13.9999174" />
+	<trkpt lat="64.7828459" lon="14.0007401" />
+</trkseg></trk>
+<trk><trkseg>
+	<trkpt lat="64.7937123" lon="13.9066943" />
+	<trkpt lat="64.7918636" lon="13.9091262" />
+	<trkpt lat="64.7922392" lon="13.921233" />
+	<trkpt lat="64.7902613" lon="13.925689" />
+	<trkpt lat="64.7908104" lon="13.9421655" />
+	<trkpt lat="64.7859007" lon="13.9792197" />
+	<trkpt lat="64.7862931" lon="13.9840862" />
+	<trkpt lat="64.7847145" lon="13.9947491" />
+	<trkpt lat="64.780918" lon="14.0066705" />
+	<trkpt lat="64.7803741" lon="14.0112341" />
+	<trkpt lat="64.7788848" lon="14.013981" />
+	<trkpt lat="64.7784358" lon="14.0220744" />
+	<trkpt lat="64.7752104" lon="14.0228641" />
+</trkseg></trk>
+</gpx>

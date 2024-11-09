@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Skoterleder.org" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd" >
+<metadata>
+  <name>Skoterleder</name>
+  <desc>From Skoterleder.org 2024-02-24 3 km (Merged: 5 Missing key:2 Removed nods: 14) Mem1: 467 Mem2: 468</desc>
+</metadata>
+<trk><trkseg>
+	<trkpt lat="69.3065" lon="21.5307052" />
+	<trkpt lat="69.3060184" lon="21.531522" />
+	<trkpt lat="69.3055629" lon="21.5321862" />
+	<trkpt lat="69.3050229" lon="21.5329496" />
+	<trkpt lat="69.3039303" lon="21.5346325" />
+	<trkpt lat="69.3034189" lon="21.5351729" />
+	<trkpt lat="69.3028734" lon="21.5355483" />
+	<trkpt lat="69.3023308" lon="21.535847" />
+	<trkpt lat="69.3017238" lon="21.536073" />
+	<trkpt lat="69.3010702" lon="21.5362849" />
+	<trkpt lat="69.3004432" lon="21.5365048" />
+	<trkpt lat="69.2998714" lon="21.536688" />
+	<trkpt lat="69.2995236" lon="21.5368144" />
+	<trkpt lat="69.2990968" lon="21.5368988" />
+	<trkpt lat="69.2985603" lon="21.5370394" />
+	<trkpt lat="69.2981022" lon="21.5370608" />
+	<trkpt lat="69.2974685" lon="21.5372786" />
+	<trkpt lat="69.2969951" lon="21.5373492" />
+	<trkpt lat="69.2963475" lon="21.5375806" />
+	<trkpt lat="69.2958016" lon="21.5376111" />
+	<trkpt lat="69.2954419" lon="21.5375199" />
+	<trkpt lat="69.2949859" lon="21.5373105" />
+	<trkpt lat="69.2944514" lon="21.5366853" />
+	<trkpt lat="69.2941683" lon="21.5363502" />
+	<trkpt lat="69.2937154" lon="21.5365872" />
+	<trkpt lat="69.2932983" lon="21.5369396" />
+	<trkpt lat="69.2927908" lon="21.5373683" />
+	<trkpt lat="69.2924487" lon="21.5377177" />
+	<trkpt lat="69.2921355" lon="21.5381752" />
+	<trkpt lat="69.2916062" lon="21.5382998" />
+	<trkpt lat="69.2909308" lon="21.5378459" />
+	<trkpt lat="69.2905121" lon="21.5371846" />
+	<trkpt lat="69.2901743" lon="21.5372249" />
+	<trkpt lat="69.2897527" lon="21.5377027" />
+	<trkpt lat="69.2891389" lon="21.5382827" />
+	<trkpt lat="69.2885917" lon="21.538952" />
+	<trkpt lat="69.2880024" lon="21.5397018" />
+	<trkpt lat="69.2876892" lon="21.539981" />
+	<trkpt lat="69.2872192" lon="21.5396069" />
+	<trkpt lat="69.2867824" lon="21.5397775" />
+	<trkpt lat="69.2865429" lon="21.5402391" />
+	<trkpt lat="69.286332" lon="21.5411905" />
+	<trkpt lat="69.2860533" lon="21.5416223" />
+	<trkpt lat="69.285403" lon="21.5421022" />
+	<trkpt lat="69.2848216" lon="21.5424326" />
+</trkseg></trk>
+</gpx>

@@ -1,0 +1,7 @@
+<br />
+<b>Warning</b>:  Undefined variable $lat in <b>/media/sf_www/test.skoterleder.org/inc/mkgpx.php</b> on line <b>37</b><br />
+<br />
+<b>Fatal error</b>:  Uncaught TypeError: array_key_exists(): Argument #2 ($array) must be of type array, null given in /media/sf_www/test.skoterleder.org/inc/mkgpx.php:37
+Stack trace:
+#0 {main}
+  thrown in <b>/media/sf_www/test.skoterleder.org/inc/mkgpx.php</b> on line <b>37</b><br />
