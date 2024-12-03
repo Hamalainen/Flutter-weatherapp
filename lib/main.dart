@@ -122,37 +122,20 @@ class _MyHomePageState extends State<MyHomePage> {
   Future<void> _openWeatherData(now, LatLng latilongi) async {
     int elevation = await _getGroundElevation(latilongi);
     var weatherOnGround = await _getWeatherWithAltitude(latilongi, elevation);
-    int freezingPoint = elevation;
-    if (weatherOnGround[2]['data']['instant']['details']['air_temperature'] >
-        0) {
-      freezingPoint = await _findfreezingPoint(latilongi, elevation);
-    }
-
-    Weather now = Weather(
-        time: DateTime.parse(weatherOnGround[2]['time']),
-        airtemp: weatherOnGround[2]['data']['instant']['details']
-            ['air_temperature'],
-        elevation: elevation,
-        freezingPoint: freezingPoint,
-        summary: weatherOnGround[2]['data']['next_1_hours']['summary']
-            ['symbol_code']);
 
     var weatherlist = [];
     for (var i = 2; i < 26; i++) {
+      int freezingPoint = elevation;
+      if (weatherOnGround[i]['data']['instant']['details']['air_temperature'] >
+          0) {
+        freezingPoint = await _findfreezingPoint(latilongi, elevation);
+      }
 
-    int freezingpoint = elevation;
-    if (weatherOnGround[i]['data']['instant']['details']['air_temperature'] >
-        0) {
-      freezingPoint = await _findfreezingPoint(latilongi, elevation);
-    }
-
-      // int freezingpoint =
-      //     await _findfreezingPoint(latilongi, elevation, timeIndex: i);
       weatherlist.add(Weather(
           time: DateTime.parse(weatherOnGround[i]['time']),
           airtemp: weatherOnGround[i]['data']['instant']['details']
               ['air_temperature'],
-          freezingPoint: freezingpoint,
+          freezingPoint: freezingPoint,
           elevation: -1,
           summary: ''));
     }
