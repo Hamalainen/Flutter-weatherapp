@@ -22,8 +22,6 @@ class Weather {
   });
 }
 
-
-
 void main() {
   runApp(const MyApp());
 }
@@ -55,7 +53,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-   late Future<List<Polyline<Object>>> polylinesLayer;
+  late Future<List<Polyline<Object>>> polylinesLayer;
 
   final List<Marker> _markerList = [];
 
@@ -112,10 +110,10 @@ class _MyHomePageState extends State<MyHomePage> {
               double.parse(trackpath.getAttribute('lon').toString())));
         }
         polyLines.add(Polyline(
-            points: polySegment,
-            color: Colors.blue,
-            // pattern: const StrokePattern.solid()
-            ));
+          points: polySegment,
+          color: Colors.blue,
+          // pattern: const StrokePattern.solid()
+        ));
       }
     }
     return polyLines;
@@ -124,7 +122,11 @@ class _MyHomePageState extends State<MyHomePage> {
   Future<void> _openWeatherData(now, LatLng latilongi) async {
     int elevation = await _getGroundElevation(latilongi);
     var weatherOnGround = await _getWeatherWithAltitude(latilongi, elevation);
-    int freezingPoint = await _findfreezingPoint(latilongi, elevation);
+    int freezingPoint = elevation;
+    if (weatherOnGround[2]['data']['instant']['details']['air_temperature'] >
+        0) {
+      freezingPoint = await _findfreezingPoint(latilongi, elevation);
+    }
 
     Weather now = Weather(
         time: DateTime.parse(weatherOnGround[2]['time']),
@@ -311,7 +313,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   }),
               MarkerLayer(
                 markers: _markerList,
-                alignment: const Alignment(0.75,0.75),
+                alignment: const Alignment(0.75, 0.75),
               )
             ],
           ),
