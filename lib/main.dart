@@ -237,7 +237,10 @@ class _MyHomePageState extends State<MyHomePage> {
   void _getWeather(LatLng latilongi) async {
     int elevation = await _getGroundElevation(latilongi);
     var groundData = await _getWeatherWithAltitude(latilongi, elevation);
-    int freezingPoint = await _findfreezingPoint(latilongi, elevation);
+    int freezingPoint = elevation;
+    if (groundData[2]['data']['instant']['details']['air_temperature'] > 0) {
+      freezingPoint = await _findfreezingPoint(latilongi, elevation);
+    }
 
     Weather now = Weather(
         time: DateTime.parse(groundData[2]['time']),
