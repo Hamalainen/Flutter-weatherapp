@@ -139,8 +139,15 @@ class _MyHomePageState extends State<MyHomePage> {
 
     var weatherlist = [];
     for (var i = 2; i < 26; i++) {
-      int freezingpoint =
-          await _findfreezingPoint(latilongi, elevation, timeIndex: i);
+
+    int freezingpoint = elevation;
+    if (weatherOnGround[i]['data']['instant']['details']['air_temperature'] >
+        0) {
+      freezingPoint = await _findfreezingPoint(latilongi, elevation);
+    }
+
+      // int freezingpoint =
+      //     await _findfreezingPoint(latilongi, elevation, timeIndex: i);
       weatherlist.add(Weather(
           time: DateTime.parse(weatherOnGround[i]['time']),
           airtemp: weatherOnGround[i]['data']['instant']['details']
