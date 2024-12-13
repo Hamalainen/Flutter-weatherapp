@@ -6,6 +6,7 @@ import 'package:latlong2/latlong.dart';
 import 'package:flutter_map_cancellable_tile_provider/flutter_map_cancellable_tile_provider.dart';
 import 'package:flutter/services.dart';
 import 'package:xml/xml.dart' as xml;
+import './utilities/polyLines.dart' as poly;
 
 class Weather {
   final DateTime time;
@@ -78,47 +79,6 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  Future<List<xml.XmlDocument>> readgpx() async {
-    List<xml.XmlDocument> xmlList = [];
-
-    final AssetManifest assetManifest =
-        await AssetManifest.loadFromAssetBundle(rootBundle);
-    final List<String> assets = assetManifest.listAssets();
-    for (var asset in assets) {
-      if (asset.substring(asset.length - 4) == '.gpx') {
-        try {
-          xmlList
-              .add(xml.XmlDocument.parse(await rootBundle.loadString(asset)));
-        } catch (e) {
-          print(e);
-        }
-      }
-    }
-    return xmlList;
-  }
-
-  Future<List<Polyline<Object>>> _getPolylines() async {
-    List<Polyline> polyLines = [];
-    var gpxStrings = await readgpx();
-
-    for (var gpxString in gpxStrings) {
-      for (var segment in gpxString.findAllElements('trkseg')) {
-        List<LatLng> polySegment = [];
-        for (var trackpath in segment.findAllElements('trkpt')) {
-          polySegment.add(LatLng(
-              double.parse(trackpath.getAttribute('lat').toString()),
-              double.parse(trackpath.getAttribute('lon').toString())));
-        }
-        polyLines.add(Polyline(
-          points: polySegment,
-          color: Colors.blue,
-          // pattern: const StrokePattern.solid()
-        ));
-      }
-    }
-    return polyLines;
-  }
-
   Future<void> _openWeatherData(now, LatLng latilongi) async {
     int elevation = await _getGroundElevation(latilongi);
     var weatherOnGround = await _getWeatherWithAltitude(latilongi, elevation);
@@ -128,7 +88,8 @@ class _MyHomePageState extends State<MyHomePage> {
       int freezingPoint = elevation;
       if (weatherOnGround[i]['data']['instant']['details']['air_temperature'] >
           0) {
-        freezingPoint = await _findfreezingPoint(latilongi, elevation);
+        freezingPoint =
+            await _findfreezingPoint(latilongi, elevation, timeIndex: i);
       }
 
       weatherlist.add(Weather(
@@ -208,20 +169,21 @@ class _MyHomePageState extends State<MyHomePage> {
     bool foundFreezing = false;
 
     int freezingPoint = elevation;
-    while (!foundFreezing) {
+    while (!foundFreezing && freezingPoint >= elevation) {
       var data = await _getWeatherWithAltitude(latilongi, freezingPoint);
-      if (data[timeIndex]['data']['instant']['details']['air_temperature'] >
-          0.3) {
+      var temperature =
+          data[timeIndex]['data']['instant']['details']['air_temperature'];
+      if (temperature > 0.4) {
         freezingPoint += 250;
-      } else if (data[timeIndex]['data']['instant']['details']
-              ['air_temperature'] <
-          -0.3) {
+      } else if (temperature < -0.4) {
         freezingPoint -= 25;
       } else {
-        freezingPoint -= elevation;
-
         foundFreezing = true;
       }
+    }
+    freezingPoint -= elevation;
+    if (freezingPoint <= elevation) {
+      freezingPoint = elevation;
     }
     return freezingPoint;
   }
@@ -271,7 +233,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
-    polylinesLayer = _getPolylines();
+    polylinesLayer = poly.getPolylines();
   }
 
   @override
@@ -304,6 +266,7 @@ class _MyHomePageState extends State<MyHomePage> {
               MarkerLayer(
                 markers: _markerList,
                 alignment: const Alignment(0.75, 0.75),
+                rotate: true,
               )
             ],
           ),
